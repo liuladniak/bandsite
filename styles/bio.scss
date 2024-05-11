@@ -1,0 +1,17 @@
+@use "./partials/typography";
+@use "./partials/variables";
+@use "./partials/globals";
+@use "./partials/mixins";
+
+body {
+  display: flex;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+}
+div {
+  width: 50%;
+  text-align: center;
+  font-family: "Avenir Next Regular";
+}
