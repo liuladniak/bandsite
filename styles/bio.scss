@@ -1,7 +1,7 @@
-@use "./partials/typography";
-@use "./partials/variables";
-@use "./partials/globals";
-@use "./partials/mixins";
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/globals" as *;
+@use "./partials/typography" as *;
 
 body {
   display: flex;
