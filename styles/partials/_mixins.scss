@@ -1,17 +1,22 @@
 @use "./variables" as *;
 
 @mixin mobile-breakpoint {
-  @media screen and (max-width: $mobile-breakpoint) {
+  @media screen and (min-width: $mobile-breakpoint) {
     @content;
   }
 }
 @mixin tablet-breakpoint {
-  @media screen and (min-width: $tablet-min-breakpoint) and (max-width: $tablet-max-breakpoint) {
+  @media screen and (min-width: $tablet-breakpoint) {
     @content;
   }
 }
 @mixin desktop-breakpoint {
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+@mixin desktop-breakpoint-max {
+  @media screen and (min-width: $desktop-breakpoint-max) {
     @content;
   }
 }

@@ -1,4 +1,16 @@
-$mobile-breakpoint: 767px;
-$tablet-min-breakpoint: 768px;
-$tablet-max-breakpoint: 1279px;
+// SCREEN BREAKPOINTS:
+$mobile-breakpoint: 320px;
+$tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
+$desktop-breakpoint-max: 1920px;
+
+// COLORS:
+// Primary colors:
+$color-bandsite-black: #323232;
+$color-silver: #afafaf;
+$color-white: #ffffff;
+
+// Secondary colors:
+$color-bandsite-darkblack: #000000;
+$color-mercury: #e1e1e1;
+$color-alabaster: #fafafa;
