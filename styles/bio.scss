@@ -4,26 +4,4 @@
 @use "./partials/typography" as *;
 
 body {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background-color: pink;
-  @include mobile-breakpoint {
-    background-color: yellow;
-  }
-  @include tablet-breakpoint {
-    background-color: orange;
-  }
-  @include desktop-breakpoint {
-    background-color: red;
-  }
-  @include desktop-breakpoint-max {
-    background-color: green;
-  }
-}
-div {
-  width: 50%;
-  text-align: center;
-  font-family: "Avenir Next Regular";
 }
