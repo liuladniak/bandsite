@@ -15,6 +15,9 @@
 /* ************************** */
 .section-about {
   padding: 0 1.6rem 2.4rem;
+  @include tablet-breakpoint {
+    padding: 0 3.6rem 4.8rem;
+  }
 }
 .about {
   &__heading {
@@ -22,37 +25,71 @@
     font-family: "Avenir Next Bold";
     font-size: 2.4rem;
     line-height: 3.2rem;
+    @include tablet-breakpoint {
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+      margin-bottom: 3.6rem;
+    }
   }
   &__image {
     margin-bottom: 1.6rem;
+    @include tablet-breakpoint {
+      margin: 0 6.4rem 3.2rem;
+    }
   }
   &__quote {
     font-family: "Avenir Next Demi";
     font-size: 1.4rem;
     line-height: 2.2rem;
     margin-bottom: 1.6rem;
+    @include tablet-breakpoint {
+      margin: 0 6.4rem 5.6rem;
+    }
   }
+
   &__subheading {
     font-family: "Avenir Next Demi";
     font-size: 1.3rem;
     line-height: 1.8rem;
     margin-bottom: 1.6rem;
+    @include tablet-breakpoint {
+      margin: 0 6.4rem;
+    }
   }
   &__bio-content {
     font-size: 1.3rem;
     line-height: 1.8rem;
     margin-bottom: 2.4rem;
+    @include tablet-breakpoint {
+      display: flex;
+      justify-content: center;
+      margin: 0 6.4rem;
+    }
   }
   &__bio-content p:first-child {
     margin-bottom: 1.6rem;
   }
 }
+.quote__content {
+  margin-bottom: 1.6rem;
+}
+.quote__author {
+  @include tablet-breakpoint {
+    font-size: 1rem;
+  }
+}
+
 /* ************************** */
 /* PHOTO GALLERY*/
 /* ************************** */
 
 .section-gallery {
+  background-color: $color-alabaster;
+
   padding: 0 1.6rem;
+  @include tablet-breakpoint {
+    padding: 4.8rem 3.6rem;
+  }
 }
 .gallery {
   &__heading {
@@ -60,18 +97,33 @@
     font-family: "Avenir Next Bold";
     font-size: 2.4rem;
     line-height: 3.2rem;
+    @include tablet-breakpoint {
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+    }
+  }
+  &__photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, min-max(300px, 1fr));
+    gap: 1.6rem;
+    @include tablet-breakpoint {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   &__photos img {
-    margin-bottom: 1.6rem;
+    @include tablet-breakpoint {
+    }
   }
 }
 /* ************************** */
 /* FOOTER */
 /* ************************** */
 .footer {
+  background-color: $color-bandsite-black;
   padding: 2.4rem 1.6rem;
+  color: $color-white;
+
   &__heading {
-    color: $color-white;
     margin-bottom: 1.6rem;
     font-family: "Avenir Next Bold";
     font-size: 2.4rem;
@@ -80,12 +132,20 @@
   &__socials {
     display: flex;
     gap: 1.6rem;
+    & img {
+      width: 30px;
+      height: 30px;
+    }
   }
-  &-content__wrapper {
+  &-content-wrapper {
     color: $color-white;
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    @include tablet-breakpoint {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   &__col {
     display: flex;
