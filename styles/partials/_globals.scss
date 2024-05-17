@@ -166,3 +166,90 @@ body {
     padding: 4.8rem 0 3.2rem;
   }
 }
+
+/* ************************** */
+/* FOOTER */
+/* ************************** */
+.footer {
+  background-color: $color-bandsite-black;
+  padding: 2.4rem 1.6rem;
+  color: $color-white;
+
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    padding: 4.8rem 3.6rem;
+  }
+  &-content-wrapper {
+    color: $color-white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1.6rem;
+    @include tablet-breakpoint {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3.2rem;
+    }
+  }
+  &-heading-wrapper {
+    @include tablet-breakpoint {
+      display: flex;
+      align-items: center;
+      gap: 2.4rem;
+    }
+  }
+  &__heading {
+    font-family: "Avenir Next Bold";
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    @include tablet-breakpoint {
+      display: inline-block;
+      order: 1;
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+    }
+  }
+  &__socials {
+    display: flex;
+    gap: 1.6rem;
+    @include tablet-breakpoint {
+      order: 2;
+      gap: 2.4rem;
+    }
+    & img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__cols {
+    display: flex;
+    @include tablet-breakpoint {
+      order: 4;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include tablet-breakpoint {
+      gap: 2.4rem;
+      flex-direction: column;
+    }
+  }
+
+  &__subheading {
+    font-family: "Avenir Next Demi";
+  }
+  &__logo {
+    @include tablet-breakpoint {
+      display: flex;
+      order: 3;
+    }
+  }
+}
