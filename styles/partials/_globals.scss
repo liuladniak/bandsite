@@ -181,7 +181,7 @@ body {
     gap: 4.8rem;
     padding: 4.8rem 3.6rem;
   }
-  &-content-wrapper {
+  &-content-wrap {
     color: $color-white;
     display: flex;
     flex-wrap: wrap;
@@ -193,7 +193,7 @@ body {
       gap: 3.2rem;
     }
   }
-  &-heading-wrapper {
+  &-heading-wrap {
     @include tablet-breakpoint {
       display: flex;
       align-items: center;
@@ -226,6 +226,8 @@ body {
   &__cols {
     display: flex;
     @include tablet-breakpoint {
+      font-size: 1.4rem;
+      line-height: 2rem;
       order: 4;
       flex-direction: row;
       width: 100%;
@@ -249,7 +251,16 @@ body {
   &__logo {
     @include tablet-breakpoint {
       display: flex;
+      align-items: center;
       order: 3;
     }
+    & img {
+      max-height: 20px;
+      max-width: 120px;
+    }
+  }
+  &__copy {
+    font-size: 1.4rem;
+    line-height: 2rem;
   }
 }
