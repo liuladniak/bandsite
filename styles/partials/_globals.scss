@@ -37,6 +37,9 @@ html {
 body {
   font-family: "Avenir Next Regular";
   color: $color-bandsite-black;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .header {
   width: 100%;
@@ -66,12 +69,8 @@ body {
 }
 .main-nav {
   width: 100%;
-  font-size: 1.3rem;
-  line-height: 1.8rem;
-  @include tablet-breakpoint {
-    font-size: 1.4rem;
-    line-height: 2.2rem;
-  }
+  font-size: 1.4rem;
+  line-height: 2.2rem;
 
   &__list {
     display: flex;
@@ -86,7 +85,7 @@ body {
     position: relative;
     flex: 1;
     text-align: center;
-    padding: 1.6rem 0;
+    padding: 1.2rem 0;
     @include tablet-breakpoint {
       flex: unset;
     }
@@ -107,7 +106,7 @@ body {
       }
     }
     &:hover::after {
-      height: 2px;
+      height: 3px;
     }
   }
   &__link {
@@ -132,7 +131,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 2.4rem;
   &::after {
     content: "";
     position: absolute;
@@ -144,11 +142,9 @@ body {
   }
   @include tablet-breakpoint {
     height: 450px;
-    margin-bottom: 4.8rem;
   }
   @include desktop-breakpoint {
     height: 630px;
-    margin-bottom: 4.8rem;
   }
 }
 .hero__heading {
@@ -183,7 +179,7 @@ body {
 /* ************************** */
 .footer {
   background-color: $color-bandsite-black;
-  padding: 2.4rem 1.6rem;
+  padding: 0 1.6rem 2.4rem;
   color: $color-white;
 
   @include tablet-breakpoint {
@@ -211,13 +207,16 @@ body {
     }
   }
   &-heading-wrap {
+    display: flex;
+    flex-direction: column;
     @include tablet-breakpoint {
-      display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 2.4rem;
     }
   }
   &__heading {
+    padding: 2.6rem 0 1.6rem;
     font-family: "Avenir Next Bold";
     font-size: 2.4rem;
     line-height: 3.2rem;
@@ -242,6 +241,7 @@ body {
   }
   &__cols {
     display: flex;
+    flex-direction: column;
     @include tablet-breakpoint {
       font-size: 1.4rem;
       line-height: 2rem;
