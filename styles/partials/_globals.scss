@@ -49,6 +49,7 @@ body {
     justify-content: flex-start;
   }
 }
+
 .max-width {
   max-width: 1280px;
 }
@@ -146,28 +147,36 @@ body {
   justify-content: flex-start;
   align-items: center;
 
+  @include lg-phone-breakpoint {
+    height: 300px;
+  }
   @include tablet-breakpoint {
     height: 450px;
+  }
+  @include lg-tablet-breakpoint {
+    height: 540px;
   }
   @include desktop-breakpoint {
     height: 630px;
   }
-}
-.hero__heading {
-  color: $color-white;
-  font-family: "Avenir Next Bold";
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  padding: 0 1.6rem;
-  z-index: 2;
-
-  @include tablet-breakpoint {
-    font-size: 6rem;
-    line-height: 6.8rem;
-    padding: 0 3.6rem;
-  }
-  @include desktop-breakpoint {
-    padding: 0 12.8rem;
+  &__heading {
+    color: $color-white;
+    font-family: "Avenir Next Bold";
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    padding: 0 1.6rem;
+    z-index: 2;
+    @include mid-phone-breakpoint {
+      font-size: 3.2rem;
+    }
+    @include tablet-breakpoint {
+      font-size: 6rem;
+      line-height: 6.8rem;
+      padding: 0 3.6rem;
+    }
+    @include desktop-breakpoint {
+      padding: 0 12.8rem;
+    }
   }
 }
 .section__heading {
@@ -183,11 +192,12 @@ body {
 /* ************************** */
 /* FOOTER */
 /* ************************** */
+
 .footer {
   background-color: $color-bandsite-black;
   padding: 0 1.6rem 2.4rem;
   color: $color-white;
-
+  width: 100%;
   @include tablet-breakpoint {
     display: flex;
     flex-direction: column;
