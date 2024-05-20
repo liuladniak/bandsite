@@ -1,17 +1,161 @@
-@use "./partials/typography";
-@use "./partials/variables";
-@use "./partials/globals";
-@use "./partials/mixins";
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/globals" as *;
+@use "./partials/typography" as *;
 
-body {
-  display: flex;
-  height: 100vh;
-
-  justify-content: center;
-  align-items: center;
+/* ************************** */
+/* HERO SECTION*/
+/* ************************** */
+.section-hero--bio {
+  position: relative;
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center center;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
-div {
-  width: 50%;
-  text-align: center;
-  font-family: "Avenir Next Regular";
+
+/* ************************** */
+/* ABOUT SECTION*/
+/* ************************** */
+.about {
+  padding: 0 1.6rem 1.6rem;
+  &__heading {
+    font-family: "Avenir Next Bold";
+    @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
+    @include tablet-breakpoint {
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
+    }
+    @include desktop-breakpoint {
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-lg);
+    }
+  }
+  &__img {
+    margin-bottom: 1.6rem;
+    & img {
+      aspect-ratio: 1.86 / 1;
+      object-fit: cover;
+    }
+    @include tablet-breakpoint {
+      margin: 0 6.4rem 2.4rem;
+    }
+    @include desktop-breakpoint {
+      margin: 0 8.8rem 3.6rem;
+    }
+  }
+  &__quote {
+    font-family: "Avenir Next Demi";
+    @include tablet-breakpoint {
+      margin: 0 6.4rem 4.8rem;
+    }
+    @include desktop-breakpoint {
+      margin: 0 8.8rem 4.8rem;
+    }
+  }
+
+  &__subheading {
+    font-family: "Avenir Next Demi";
+    @include heading-style($font-body-md, $lh-body-md, $padding-sm);
+    @include tablet-breakpoint {
+      margin: 0 6.4rem 2.4rem;
+      @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
+    }
+    @include desktop-breakpoint {
+      margin: 0 8.8rem 2.4rem;
+    }
+  }
+  &__bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    @include font($font-body-sm, $lh-body-sm);
+    & p {
+      margin-right: 1.6rem;
+      @include tablet-breakpoint {
+        margin-right: 0;
+      }
+    }
+    @include tablet-breakpoint {
+      flex-direction: row;
+      justify-content: center;
+      @include font($font-body-md, $lh-body-md);
+      margin: 0 6.4rem;
+    }
+    @include desktop-breakpoint {
+      gap: 4.8rem;
+      margin: 0 8.8rem;
+    }
+  }
+  @include tablet-breakpoint {
+    padding: 0 3.6rem 3.2rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem 3.2rem;
+  }
+}
+.quote__content {
+  @include font($font-body-md, $lh-body-md);
+  margin-bottom: 0.8rem;
+  @include tablet-breakpoint {
+    @include font($font-heading-sm, $lh-heading-sm);
+  }
+}
+.quote__author {
+  @include font($font-body-sm, $lh-body-sm);
+  @include tablet-breakpoint {
+    @include font($font-body-md, $lh-body-md);
+  }
+}
+
+/* ************************** */
+/* GALLERY*/
+/* ************************** */
+.gallery {
+  background-color: $color-alabaster;
+  padding: 0 1.6rem 1.6rem;
+  &__heading {
+    font-family: "Avenir Next Bold";
+    @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
+    @include tablet-breakpoint {
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
+    }
+    @include desktop-breakpoint {
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-lg);
+    }
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    @include tablet-breakpoint {
+      margin-bottom: 3.6rem;
+    }
+  }
+  &__item {
+    @include tablet-breakpoint {
+      max-width: calc((100% - 48px) / 3);
+    }
+    & img {
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.4s;
+
+      &:hover {
+        filter: grayscale(100%);
+      }
+    }
+  }
+  @include tablet-breakpoint {
+    padding: 0 3.6rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem;
+  }
 }

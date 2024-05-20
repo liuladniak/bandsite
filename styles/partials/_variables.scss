@@ -1,0 +1,35 @@
+// SCREEN BREAKPOINTS (Mobile First):
+$mid-phone-breakpoint: 400px;
+$lg-phone-breakpoint: 550px;
+$tablet-breakpoint: 768px;
+$lg-tablet-breakpoint: 1000px;
+$desktop-breakpoint: 1280px;
+
+// COLORS:
+// Primary colors:
+$color-bandsite-black: #323232;
+$color-silver: #afafaf;
+$color-white: #ffffff;
+
+// Secondary colors:
+$color-bandsite-darkblack: #000000;
+$color-mercury: #e1e1e1;
+$color-alabaster: #fafafa;
+
+//PADDINGS:
+$padding-sm: 2.4rem 0 1.6rem 0;
+$padding-md: 4.8rem 0 2.4rem 0;
+$padding-lg: 4.8rem 0 3.6rem 0;
+
+//FONTS
+//Font size:
+$font-body-sm: 1.3rem;
+$font-body-md: 1.4rem;
+$font-heading-sm: 2.4rem;
+$font-heading-lg: 3.6rem;
+
+//Line height:
+$lh-body-sm: 1.8rem;
+$lh-body-md: 2.2rem;
+$lh-heading-sm: 3.2rem;
+$lh-heading-lg: 4.4rem;

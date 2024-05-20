@@ -1,0 +1,50 @@
+@use "./variables" as *;
+/* ************************** */
+/* MEDIA MIXINS*/
+/* ************************** */
+
+//Additional breakpoints (between 320px and 767px):
+@mixin mid-phone-breakpoint {
+  @media screen and (min-width: $mid-phone-breakpoint) {
+    @content;
+  }
+}
+@mixin lg-phone-breakpoint {
+  @media screen and (min-width: $lg-phone-breakpoint) {
+    @content;
+  }
+}
+//Tablet breakpoint from 768px to 1279px:
+@mixin tablet-breakpoint {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+//Additional tablet breakpoint:
+@mixin lg-tablet-breakpoint {
+  @media screen and (min-width: $lg-tablet-breakpoint) {
+    @content;
+  }
+}
+//Desktop breakpoint from 1280px onwards:
+@mixin desktop-breakpoint {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+/* ************************** */
+/* STYLE MIXINS*/
+/* ************************** */
+
+@mixin padding($padding) {
+  padding: $padding;
+}
+@mixin font($f-s, $l-h) {
+  font-size: $f-s;
+  line-height: $l-h;
+}
+@mixin heading-style($f-s, $l-h, $padding) {
+  @include font($f-s, $l-h);
+  @include padding($padding);
+}
