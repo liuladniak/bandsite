@@ -38,12 +38,15 @@
 /* ************************** */
 /* STYLE MIXINS*/
 /* ************************** */
-@mixin section-heading-p-mb {
-  padding: 2.4rem 0 1.6rem;
+
+@mixin padding($p-t, $p-r, $p-b, $p-l) {
+  padding: $p-t $p-r $p-b $p-l;
 }
-@mixin pad-heading-tb {
-  padding: 2.4rem 0 1.6rem;
+@mixin font($f-s, $l-h) {
+  font-size: $f-s;
+  line-height: $l-h;
 }
-@mixin pad-heading-dsk {
-  padding: 4.8rem 0 1.6rem;
+@mixin heading-style($f-s, $l-h, $p-t, $p-r, $p-b, $p-l) {
+  @include font($f-s, $l-h);
+  @include padding($p-t, $p-r, $p-b, $p-l);
 }
