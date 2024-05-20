@@ -1,3 +1,9 @@
+/* ************************** */
+/* MEDIA MIXINS*/
+/* ************************** */
+/* ************************** */
+/* STYLE MIXINS*/
+/* ************************** */
 /* Default browser styling reset */
 *,
 *::before,
@@ -33,7 +39,7 @@ h6 {
 
 /* Common styles */
 html {
-  font-size: 10px;
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
@@ -55,7 +61,7 @@ body::-webkit-scrollbar {
 }
 
 .max-width {
-  max-width: 1280px;
+  max-width: 1440px;
 }
 
 .bg-color--1 {
@@ -126,7 +132,13 @@ body::-webkit-scrollbar {
     flex: unset;
   }
 }
-.main-nav__item::after {
+.main-nav__link:active, .main-nav__link:hover {
+  color: #ffffff;
+}
+.main-nav__link:active {
+  font-family: "Avenir Next Bold";
+}
+.main-nav__link::after {
   content: "";
   position: absolute;
   height: 0;
@@ -137,26 +149,23 @@ body::-webkit-scrollbar {
   transition: height 0.2s ease-in;
 }
 @media screen and (min-width: 768px) {
-  .main-nav__item::after {
-    bottom: -0.6rem;
+  .main-nav__link::after {
+    bottom: -1rem;
   }
 }
-@media screen and (min-width: 768px) {
-  .main-nav__item::after {
-    bottom: -1.4rem;
+@media screen and (min-width: 1280px) {
+  .main-nav__link::after {
+    bottom: -1.8rem;
   }
 }
-.main-nav__item:hover::after {
+.main-nav__link:hover::after {
   height: 3px;
 }
-.main-nav__link {
-  display: inline-block;
-}
-.main-nav__link:active, .main-nav__link:hover {
+.main-nav__link--active {
   color: #ffffff;
 }
-.main-nav__link:active {
-  font-family: "Avenir Next Bold";
+.main-nav__link--active::after {
+  height: 3px;
 }
 
 .hero {
@@ -578,18 +587,26 @@ body::-webkit-scrollbar {
     padding: 4.8rem 0 3.6rem;
   }
 }
-.gallery__photos {
+.gallery__items {
   display: flex;
   flex-wrap: wrap;
   gap: 2.4rem;
 }
 @media screen and (min-width: 768px) {
-  .gallery__photos {
+  .gallery__items {
     margin-bottom: 3.6rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .gallery__photos img {
+  .gallery__item {
     max-width: calc((100% - 48px) / 3);
   }
+}
+.gallery__item img {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.gallery__item img:hover {
+  filter: grayscale(100%);
 }/*# sourceMappingURL=bio.css.map */

@@ -157,7 +157,7 @@
       padding: 4.8rem 0 3.6rem;
     }
   }
-  &__photos {
+  &__items {
     display: flex;
     flex-wrap: wrap;
     gap: 2.4rem;
@@ -165,9 +165,18 @@
       margin-bottom: 3.6rem;
     }
   }
-  &__photos img {
+  &__item {
     @include tablet-breakpoint {
       max-width: calc((100% - 48px) / 3);
+    }
+    & img {
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.4s;
+
+      &:hover {
+        filter: grayscale(100%);
+      }
     }
   }
 }

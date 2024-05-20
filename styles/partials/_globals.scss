@@ -31,7 +31,7 @@ h6 {
 
 /* Common styles */
 html {
-  font-size: 10px;
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 body {
@@ -51,7 +51,7 @@ body {
 }
 
 .max-width {
-  max-width: 1280px;
+  max-width: 1440px;
 }
 .bg-color--1 {
   background-color: $color-alabaster;
@@ -107,6 +107,15 @@ body {
     @include tablet-breakpoint {
       flex: unset;
     }
+  }
+  &__link {
+    &:active,
+    &:hover {
+      color: $color-white;
+    }
+    &:active {
+      font-family: "Avenir Next Bold";
+    }
     &::after {
       content: "";
       position: absolute;
@@ -117,25 +126,21 @@ body {
       background-color: $color-white;
       transition: height 0.2s ease-in;
       @include tablet-breakpoint {
-        bottom: -0.6rem;
+        bottom: -1rem;
       }
-      @include tablet-breakpoint {
-        bottom: -1.4rem;
+      @include desktop-breakpoint {
+        bottom: -1.8rem;
       }
     }
     &:hover::after {
       height: 3px;
     }
-  }
-  &__link {
-    display: inline-block;
-
-    &:active,
-    &:hover {
+    &--active {
       color: $color-white;
-    }
-    &:active {
-      font-family: "Avenir Next Bold";
+
+      &::after {
+        height: 3px;
+      }
     }
   }
 }

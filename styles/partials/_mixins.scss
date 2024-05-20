@@ -1,4 +1,7 @@
 @use "./variables" as *;
+/* ************************** */
+/* MEDIA MIXINS*/
+/* ************************** */
 
 //Additional breakpoints (between 320px and 767px):
 @mixin mid-phone-breakpoint {
@@ -30,4 +33,17 @@
   @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
+}
+
+/* ************************** */
+/* STYLE MIXINS*/
+/* ************************** */
+@mixin section-heading-p-mb {
+  padding: 2.4rem 0 1.6rem;
+}
+@mixin pad-heading-tb {
+  padding: 2.4rem 0 1.6rem;
+}
+@mixin pad-heading-dsk {
+  padding: 4.8rem 0 1.6rem;
 }
