@@ -16,13 +16,20 @@ $color-bandsite-darkblack: #000000;
 $color-mercury: #e1e1e1;
 $color-alabaster: #fafafa;
 
-//Paddings:
-$padding-sm: 2.4rem, 0, 1.6rem, 0;
-$padding-md: 4.8rem, 0, 2.4rem, 0;
-$padding-lg: 4.8rem, 0, 3.6rem, 0;
+//PADDINGS:
+$padding-sm: 2.4rem 0 1.6rem 0;
+$padding-md: 4.8rem 0 2.4rem 0;
+$padding-lg: 4.8rem 0 3.6rem 0;
 
-//Fonts:
-$font-body-sm: 1.3rem, 1.8rem;
-$font-body-md: 1.4rem, 2.2rem;
-$font-heading-sm: 2.4rem, 3.2rem;
-$font-heading-lg: 3.6rem, 4.4rem;
+//FONTS
+//Font size:
+$font-body-sm: 1.3rem;
+$font-body-md: 1.4rem;
+$font-heading-sm: 2.4rem;
+$font-heading-lg: 3.6rem;
+
+//Line height:
+$lh-body-sm: 1.8rem;
+$lh-body-md: 2.2rem;
+$lh-heading-sm: 3.2rem;
+$lh-heading-lg: 4.4rem;

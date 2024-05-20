@@ -14,7 +14,6 @@
     @content;
   }
 }
-
 //Tablet breakpoint from 768px to 1279px:
 @mixin tablet-breakpoint {
   @media screen and (min-width: $tablet-breakpoint) {
@@ -27,7 +26,6 @@
     @content;
   }
 }
-
 //Desktop breakpoint from 1280px onwards:
 @mixin desktop-breakpoint {
   @media screen and (min-width: $desktop-breakpoint) {
@@ -39,14 +37,14 @@
 /* STYLE MIXINS*/
 /* ************************** */
 
-@mixin padding($p-t, $p-r, $p-b, $p-l) {
-  padding: $p-t $p-r $p-b $p-l;
+@mixin padding($padding) {
+  padding: $padding;
 }
 @mixin font($f-s, $l-h) {
   font-size: $f-s;
   line-height: $l-h;
 }
-@mixin heading-style($f-s, $l-h, $p-t, $p-r, $p-b, $p-l) {
+@mixin heading-style($f-s, $l-h, $padding) {
   @include font($f-s, $l-h);
-  @include padding($p-t, $p-r, $p-b, $p-l);
+  @include padding($padding);
 }

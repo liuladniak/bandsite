@@ -25,36 +25,29 @@
 /* ************************** */
 /* ABOUT SECTION*/
 /* ************************** */
-
 .about {
   padding: 0 1.6rem 1.6rem;
-  @include tablet-breakpoint {
-    padding: 0 3.6rem 3.2rem;
-  }
-  @include desktop-breakpoint {
-    padding: 0 12.8rem 3.2rem;
-  }
   &__heading {
     font-family: "Avenir Next Bold";
-    @include heading-style($font-heading-sm, $padding-sm);
+    @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
     @include tablet-breakpoint {
-      @include heading-style($font-heading-lg, $padding-md);
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
     }
     @include desktop-breakpoint {
-      @include heading-style($font-heading-lg, $padding-lg);
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-lg);
     }
   }
   &__img {
     margin-bottom: 1.6rem;
+    & img {
+      aspect-ratio: 1.86 / 1;
+      object-fit: cover;
+    }
     @include tablet-breakpoint {
       margin: 0 6.4rem 2.4rem;
     }
     @include desktop-breakpoint {
       margin: 0 8.8rem 3.6rem;
-    }
-    & img {
-      aspect-ratio: 1.86 / 1;
-      object-fit: cover;
     }
   }
   &__quote {
@@ -69,11 +62,10 @@
 
   &__subheading {
     font-family: "Avenir Next Demi";
-    padding: $padding-sm;
-
+    @include heading-style($font-body-md, $lh-body-md, $padding-sm);
     @include tablet-breakpoint {
       margin: 0 6.4rem 2.4rem;
-      @include font($font-heading-sm);
+      @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
     }
     @include desktop-breakpoint {
       margin: 0 8.8rem 2.4rem;
@@ -83,8 +75,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    @include font($font-body-sm);
-
+    @include font($font-body-sm, $lh-body-sm);
     & p {
       margin-right: 1.6rem;
       @include tablet-breakpoint {
@@ -94,7 +85,7 @@
     @include tablet-breakpoint {
       flex-direction: row;
       justify-content: center;
-      @include font($font-body-md);
+      @include font($font-body-md, $lh-body-md);
       margin: 0 6.4rem;
     }
     @include desktop-breakpoint {
@@ -102,42 +93,41 @@
       margin: 0 8.8rem;
     }
   }
+  @include tablet-breakpoint {
+    padding: 0 3.6rem 3.2rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem 3.2rem;
+  }
 }
 .quote__content {
-  @include font($font-body-md);
+  @include font($font-body-md, $lh-body-md);
   margin-bottom: 0.8rem;
   @include tablet-breakpoint {
-    @include font(2.4rem, 3.2rem);
+    @include font($font-heading-sm, $lh-heading-sm);
   }
 }
 .quote__author {
-  @include font($font-body-sm);
+  @include font($font-body-sm, $lh-body-sm);
   @include tablet-breakpoint {
-    @include font($font-body-md);
+    @include font($font-body-md, $lh-body-md);
   }
 }
 
 /* ************************** */
-/* PHOTO GALLERY*/
+/* GALLERY*/
 /* ************************** */
-
 .gallery {
   background-color: $color-alabaster;
   padding: 0 1.6rem 1.6rem;
-  @include tablet-breakpoint {
-    padding: 0 3.6rem;
-  }
-  @include desktop-breakpoint {
-    padding: 0 12.8rem;
-  }
   &__heading {
     font-family: "Avenir Next Bold";
-    @include heading-style($font-heading-sm, $padding-sm);
+    @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
     @include tablet-breakpoint {
-      @include heading-style($font-heading-lg, $padding-md);
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
     }
     @include desktop-breakpoint {
-      @include heading-style($font-heading-lg, $padding-lg);
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-lg);
     }
   }
   &__items {
@@ -161,5 +151,11 @@
         filter: grayscale(100%);
       }
     }
+  }
+  @include tablet-breakpoint {
+    padding: 0 3.6rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem;
   }
 }
