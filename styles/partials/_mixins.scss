@@ -1,4 +1,21 @@
 @use "./variables" as *;
+
+/* ************************** */
+/* STYLE MIXINS*/
+/* ************************** */
+
+@mixin padding($padding) {
+  padding: $padding;
+}
+@mixin font($f-s, $l-h) {
+  font-size: $f-s;
+  line-height: $l-h;
+}
+@mixin heading-style($f-s, $l-h, $padding) {
+  @include font($f-s, $l-h);
+  @include padding($padding);
+}
+
 /* ************************** */
 /* MEDIA MIXINS*/
 /* ************************** */
@@ -31,20 +48,4 @@
   @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
-}
-
-/* ************************** */
-/* STYLE MIXINS*/
-/* ************************** */
-
-@mixin padding($padding) {
-  padding: $padding;
-}
-@mixin font($f-s, $l-h) {
-  font-size: $f-s;
-  line-height: $l-h;
-}
-@mixin heading-style($f-s, $l-h, $padding) {
-  @include font($f-s, $l-h);
-  @include padding($padding);
 }

@@ -155,7 +155,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 1.6rem;
 
   @include lg-phone-breakpoint {
     height: 300px;
@@ -172,14 +171,14 @@ body {
   &__heading {
     color: $color-white;
     font-family: "Avenir Next Bold";
-    @include font($font-heading-sm, $font-heading-sm);
+    @include heading-style($font-heading-sm, $font-heading-sm, 0 1.6rem);
     z-index: 2;
+
     @include mid-phone-breakpoint {
       font-size: 3.2rem;
     }
     @include tablet-breakpoint {
-      @include font(6rem, 6.8rem);
-      padding: 0 3.6rem;
+      @include heading-style(6rem, 6.8rem, 0 3.6rem);
     }
     @include desktop-breakpoint {
       padding: 0 12.8rem;

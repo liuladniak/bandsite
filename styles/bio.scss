@@ -159,3 +159,39 @@
     padding: 0 12.8rem;
   }
 }
+
+/* ************************** */
+/* COMMENTS*/
+/* ************************** */
+
+.comments {
+  padding: 0 1.6rem;
+  &__heading {
+    font-family: "Avenir Next Bold";
+    @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
+    @include tablet-breakpoint {
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
+    }
+    @include tablet-breakpoint {
+      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-lg);
+    }
+  }
+  @include tablet-breakpoint {
+    padding: 0 3.6rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem;
+  }
+}
+.user-avatar {
+  & img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    @include tablet-breakpoint {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
