@@ -25,8 +25,16 @@
 /* ************************** */
 /* ABOUT SECTION*/
 /* ************************** */
-.about {
+.section-about {
   padding: 0 1.6rem 1.6rem;
+  @include tablet-breakpoint {
+    padding: 0 3.6rem 3.2rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem 3.2rem;
+  }
+}
+.about {
   &__heading {
     font-family: "Avenir Next Bold";
     @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
@@ -77,10 +85,7 @@
     gap: 1.6rem;
     @include font($font-body-sm, $lh-body-sm);
     & p {
-      margin-right: 1.6rem;
-      @include tablet-breakpoint {
-        margin-right: 0;
-      }
+      flex: 1;
     }
     @include tablet-breakpoint {
       flex-direction: row;
@@ -89,15 +94,9 @@
       margin: 0 6.4rem;
     }
     @include desktop-breakpoint {
-      gap: 4.8rem;
+      gap: 2.4rem;
       margin: 0 8.8rem;
     }
-  }
-  @include tablet-breakpoint {
-    padding: 0 3.6rem 3.2rem;
-  }
-  @include desktop-breakpoint {
-    padding: 0 12.8rem 3.2rem;
   }
 }
 .quote__content {
@@ -117,9 +116,17 @@
 /* ************************** */
 /* GALLERY*/
 /* ************************** */
-.gallery {
+.section-gallery {
   background-color: $color-alabaster;
   padding: 0 1.6rem 1.6rem;
+  @include tablet-breakpoint {
+    padding: 0 3.6rem;
+  }
+  @include desktop-breakpoint {
+    padding: 0 12.8rem;
+  }
+}
+.gallery {
   &__heading {
     font-family: "Avenir Next Bold";
     @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
@@ -152,6 +159,13 @@
       }
     }
   }
+}
+
+/* ************************** */
+/* COMMENTS*/
+/* ************************** */
+.section-comments {
+  padding: 0 1.6rem;
   @include tablet-breakpoint {
     padding: 0 3.6rem;
   }
@@ -159,13 +173,18 @@
     padding: 0 12.8rem;
   }
 }
-
-/* ************************** */
-/* COMMENTS*/
-/* ************************** */
-
 .comments {
-  padding: 0 1.6rem;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include font(1.4rem, 2.2rem);
+    border-bottom: 1px solid $color-mercury;
+
+    @include desktop-breakpoint {
+      width: 500px;
+    }
+  }
   &__heading {
     font-family: "Avenir Next Bold";
     @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
@@ -176,19 +195,132 @@
       @include heading-style($font-heading-lg, $lh-heading-lg, $padding-lg);
     }
   }
-  @include tablet-breakpoint {
-    padding: 0 3.6rem;
+  &-wrp {
+    font-family: "Avenir Next Regular";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    @include font(1.4rem, 2.2rem);
   }
-  @include desktop-breakpoint {
-    padding: 0 12.8rem;
+
+  &--posted {
+    @include desktop-breakpoint {
+      width: 500px;
+    }
   }
 }
-.user-avatar {
-  & img {
+.user {
+  flex-shrink: 0;
+  display: flex;
+  gap: 1.2rem;
+  &-avatar {
     border-radius: 50%;
     width: 36px;
     height: 36px;
     object-fit: cover;
+    @include tablet-breakpoint {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  @include tablet-breakpoint {
+    gap: 1.6rem;
+  }
+}
+
+.form {
+  &__comment-content {
+    margin-left: 4.4rem;
+    @include tablet-breakpoint {
+      margin-left: 6.4rem;
+    }
+  }
+  &__user {
+    margin-bottom: 1.6rem;
+  }
+  &-field {
+    min-height: 36px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 1.2rem;
+    border: 1px solid $color-mercury;
+    transition: all 0.2s ease;
+    &-label {
+      text-transform: uppercase;
+      color: $color-silver;
+      font-family: "Avenir Next Demi";
+      margin-bottom: 4px;
+
+      @include tablet-breakpoint {
+        @include font(1.4rem, 2rem);
+      }
+    }
+    &:focus {
+      outline: none;
+      border: 1px solid $color-bandsite-black;
+    }
+
+    @include tablet-breakpoint {
+      min-height: 48px;
+      padding: 1.6rem;
+    }
+  }
+  &__btn {
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: $color-bandsite-black;
+    color: $color-white;
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    align-self: flex-end;
+    margin: 1.6rem 0;
+    @include tablet-breakpoint {
+      width: 150px;
+      padding: 0 3.2rem;
+      margin: 2.4rem 0;
+    }
+  }
+}
+#name-label {
+  margin-left: 4.4rem;
+  @include tablet-breakpoint {
+    margin-left: 6.4rem;
+  }
+}
+#comment {
+  min-height: 9.5rem;
+  &::placeholder {
+  }
+}
+.comment {
+  &__card {
+    display: flex;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid $color-mercury;
+    gap: 1.6rem;
+    @include tablet-breakpoint {
+      padding: 2.4rem 0;
+    }
+  }
+
+  &__heading {
+    font-family: "Avenir Next Demi";
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+}
+.user {
+  &-avatar {
+    width: 36px;
+    height: 36px;
+    background-color: $color-mercury;
+    flex-shrink: 0;
     @include tablet-breakpoint {
       width: 48px;
       height: 48px;

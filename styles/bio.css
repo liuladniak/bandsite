@@ -41,35 +41,19 @@ h6 {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 body {
+  max-width: 1280px;
   font-family: "Avenir Next Regular";
   color: #323232;
 }
 body::-webkit-scrollbar {
   display: none;
-}
-
-.full-width {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.full-width--hero {
-  justify-content: flex-start;
-}
-
-.max-width {
-  max-width: 1440px;
-}
-
-.bg-color--1 {
-  background-color: #fafafa;
-}
-
-.bg-color--2 {
-  background-color: #323232;
 }
 
 /* ************************** */
@@ -424,9 +408,20 @@ body::-webkit-scrollbar {
 /* ************************** */
 /* ABOUT SECTION*/
 /* ************************** */
-.about {
+.section-about {
   padding: 0 1.6rem 1.6rem;
 }
+@media screen and (min-width: 768px) {
+  .section-about {
+    padding: 0 3.6rem 3.2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-about {
+    padding: 0 12.8rem 3.2rem;
+  }
+}
+
 .about__heading {
   font-family: "Avenir Next Bold";
   font-size: 2.4rem;
@@ -505,12 +500,7 @@ body::-webkit-scrollbar {
   line-height: 1.8rem;
 }
 .about__bio-content p {
-  margin-right: 1.6rem;
-}
-@media screen and (min-width: 768px) {
-  .about__bio-content p {
-    margin-right: 0;
-  }
+  flex: 1;
 }
 @media screen and (min-width: 768px) {
   .about__bio-content {
@@ -523,18 +513,8 @@ body::-webkit-scrollbar {
 }
 @media screen and (min-width: 1280px) {
   .about__bio-content {
-    gap: 4.8rem;
+    gap: 2.4rem;
     margin: 0 8.8rem;
-  }
-}
-@media screen and (min-width: 768px) {
-  .about {
-    padding: 0 3.6rem 3.2rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .about {
-    padding: 0 12.8rem 3.2rem;
   }
 }
 
@@ -564,10 +544,21 @@ body::-webkit-scrollbar {
 /* ************************** */
 /* GALLERY*/
 /* ************************** */
-.gallery {
+.section-gallery {
   background-color: #fafafa;
   padding: 0 1.6rem 1.6rem;
 }
+@media screen and (min-width: 768px) {
+  .section-gallery {
+    padding: 0 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-gallery {
+    padding: 0 12.8rem;
+  }
+}
+
 .gallery__heading {
   font-family: "Avenir Next Bold";
   font-size: 2.4rem;
@@ -611,22 +602,36 @@ body::-webkit-scrollbar {
 .gallery__item img:hover {
   filter: grayscale(100%);
 }
-@media screen and (min-width: 768px) {
-  .gallery {
-    padding: 0 3.6rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .gallery {
-    padding: 0 12.8rem;
-  }
-}
 
 /* ************************** */
 /* COMMENTS*/
 /* ************************** */
-.comments {
+.section-comments {
   padding: 0 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .section-comments {
+    padding: 0 3.6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-comments {
+    padding: 0 12.8rem;
+  }
+}
+
+.comments__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  border-bottom: 1px solid #e1e1e1;
+}
+@media screen and (min-width: 1280px) {
+  .comments__form {
+    width: 500px;
+  }
 }
 .comments__heading {
   font-family: "Avenir Next Bold";
@@ -648,18 +653,28 @@ body::-webkit-scrollbar {
     padding: 4.8rem 0 3.6rem 0;
   }
 }
-@media screen and (min-width: 768px) {
-  .comments {
-    padding: 0 3.6rem;
-  }
+.comments-wrp {
+  font-family: "Avenir Next Regular";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
 }
 @media screen and (min-width: 1280px) {
-  .comments {
-    padding: 0 12.8rem;
+  .comments--posted {
+    width: 500px;
   }
 }
 
-.user-avatar img {
+.user {
+  flex-shrink: 0;
+  display: flex;
+  gap: 1.2rem;
+}
+.user-avatar {
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -667,7 +682,117 @@ body::-webkit-scrollbar {
      object-fit: cover;
 }
 @media screen and (min-width: 768px) {
-  .user-avatar img {
+  .user-avatar {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .user {
+    gap: 1.6rem;
+  }
+}
+
+.form__comment-content {
+  margin-left: 4.4rem;
+}
+@media screen and (min-width: 768px) {
+  .form__comment-content {
+    margin-left: 6.4rem;
+  }
+}
+.form__user {
+  margin-bottom: 1.6rem;
+}
+.form-field {
+  min-height: 36px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 1.2rem;
+  border: 1px solid #e1e1e1;
+  transition: all 0.2s ease;
+}
+.form-field-label {
+  text-transform: uppercase;
+  color: #afafaf;
+  font-family: "Avenir Next Demi";
+  margin-bottom: 4px;
+}
+@media screen and (min-width: 768px) {
+  .form-field-label {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+}
+.form-field:focus {
+  outline: none;
+  border: 1px solid #323232;
+}
+@media screen and (min-width: 768px) {
+  .form-field {
+    min-height: 48px;
+    padding: 1.6rem;
+  }
+}
+.form__btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #323232;
+  color: #ffffff;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  align-self: flex-end;
+  margin: 1.6rem 0;
+}
+@media screen and (min-width: 768px) {
+  .form__btn {
+    width: 150px;
+    padding: 0 3.2rem;
+    margin: 2.4rem 0;
+  }
+}
+
+#name-label {
+  margin-left: 4.4rem;
+}
+@media screen and (min-width: 768px) {
+  #name-label {
+    margin-left: 6.4rem;
+  }
+}
+
+#comment {
+  min-height: 9.5rem;
+}
+.comment__card {
+  display: flex;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid #e1e1e1;
+  gap: 1.6rem;
+}
+@media screen and (min-width: 768px) {
+  .comment__card {
+    padding: 2.4rem 0;
+  }
+}
+.comment__heading {
+  font-family: "Avenir Next Demi";
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #e1e1e1;
+  flex-shrink: 0;
+}
+@media screen and (min-width: 768px) {
+  .user-avatar {
     width: 48px;
     height: 48px;
   }
