@@ -2,3 +2,95 @@
 @use "./partials/variables" as *;
 @use "./partials/globals" as *;
 @use "./partials/typography" as *;
+
+/* ************************** */
+/* SHOWS-HERO SECTION*/
+/* ************************** */
+.section-hero--shows {
+  height: 240px;
+  background-image: url("../assets/images/hero-shows.jpg");
+  @include lg-phone-breakpoint {
+    height: 300px;
+  }
+  @include tablet-breakpoint {
+    height: 450px;
+  }
+  @include lg-tablet-breakpoint {
+    height: 540px;
+  }
+  @include desktop-breakpoint {
+    height: 630px;
+  }
+}
+
+.hero {
+  &-wrp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 1.6rem;
+    @include tablet-breakpoint {
+    }
+    @include desktop-breakpoint {
+      max-width: 1020px;
+    }
+  }
+  &__heading-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    @include tablet-breakpoint {
+    }
+    @include desktop-breakpoint {
+      flex-direction: row;
+      align-items: center;
+      gap: 3.6rem;
+    }
+  }
+  &__heading--shows {
+    padding: 0 0 1.6rem 0;
+    max-width: 80%;
+    @include mid-phone-breakpoint {
+      @include heading-style($font-heading-sm, $lh-heading-sm, 0 1.6rem);
+    }
+  }
+  &__subheading {
+    color: $color-white;
+    @include heading-style(1.4rem, 2.2rem, 0 0 1.6rem 0);
+    z-index: 2;
+
+    @include tablet-breakpoint {
+      @include heading-style(2.4rem, 3.2rem, 0 0 2.4rem 0);
+    }
+    @include desktop-breakpoint {
+      @include heading-style(2.4rem, 3.2rem, 0 0 3.6rem 0);
+    }
+  }
+}
+
+.soundcloud-embed {
+  z-index: 2;
+  flex: 1;
+  @include tablet-breakpoint {
+  }
+  @include desktop-breakpoint {
+    display: flex;
+
+    justify-content: flex-end;
+  }
+}
+.song-embed {
+  width: 100%;
+  height: 100px;
+
+  @include tablet-breakpoint {
+    width: 420px;
+    height: 140px;
+  }
+  @include desktop-breakpoint {
+  }
+}
+
+.shows {
+  height: 500px;
+}
