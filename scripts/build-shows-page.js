@@ -40,28 +40,29 @@ function createElementWithClass(tag, className) {
 
 // Function to create Date, Venue, Location titles for the cards table
 function createTableTitleEl() {
-  const cardTableTop = document.createElementWithClass("div", "show-card--top");
-  const cardTitleTopDate = document.createElementWithClass(
+  const cardTableTop = createElementWithClass("div", "show-card--top");
+  showsContainer.appendChild(cardTableTop);
+  const cardTitleTopDate = createElementWithClass(
     "span",
     "show-card__title--top"
   );
   cardTitleTopDate.innerText = "Date";
   cardTableTop.appendChild(cardTitleTopDate);
-  const cardTitleTopVenue = document.createElementWithClass(
+  const cardTitleTopVenue = createElementWithClass(
     "span",
     "show-card__title--top"
   );
   cardTitleTopVenue.innerText = "Venue";
   cardTableTop.appendChild(cardTitleTopVenue);
-  const cardTitleTopLoc = document.createElementWithClass(
+  const cardTitleTopLoc = createElementWithClass(
     "span",
     "show-card__title--top"
   );
   cardTitleTopLoc.innerText = "Location";
   cardTableTop.appendChild(cardTitleTopLoc);
-  showsContainer.appendChild(cardTableTop);
+  return cardTableTop;
 }
-
+createTableTitleEl();
 //Functtion to create individual card elements
 function createCardElement(show) {
   const cardEl = createElementWithClass("div", "show-card");

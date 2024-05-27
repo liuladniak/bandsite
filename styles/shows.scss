@@ -192,9 +192,14 @@
   }
   &__title,
   &--top {
-    font-family: "Avenir Next Demi";
+    font-family: "Avenir Next Regular";
     text-transform: uppercase;
     color: $color-silver;
+    @include font($font-body-sm, $lh-body-sm);
+    @include tablet-breakpoint {
+      font-family: "Avenir Next Demi";
+      @include font($font-body-md, $lh-body-md);
+    }
   }
   &__title {
     @include tablet-breakpoint {

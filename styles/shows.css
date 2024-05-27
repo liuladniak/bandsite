@@ -623,9 +623,18 @@ body::-webkit-scrollbar {
   }
 }
 .show-card__title, .show-card--top {
-  font-family: "Avenir Next Demi";
+  font-family: "Avenir Next Regular";
   text-transform: uppercase;
   color: #afafaf;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+}
+@media screen and (min-width: 768px) {
+  .show-card__title, .show-card--top {
+    font-family: "Avenir Next Demi";
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
 }
 @media screen and (min-width: 768px) {
   .show-card__title {
