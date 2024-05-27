@@ -1,23 +1,41 @@
-const comments = [
+const commentsKey = "comments";
+const comments = JSON.parse(localStorage.getItem(commentsKey)) || [
   {
     name: "Victor Pinto",
-    dateAdded: timeAgo(new Date("11/02/2023")),
+    dateAdded: formatDate(new Date("11/02/2023")),
     comment:
       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
   },
+
   {
     name: "Christina Cabrera",
-    dateAdded: timeAgo(new Date("10/28/2023")),
+    dateAdded: formatDate(new Date("10/28/2023")),
     comment:
       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
   },
   {
     name: "Isaac Tadesse",
-    dateAdded: timeAgo(new Date("10/20/2023")),
+    dateAdded: formatDate(new Date("10/20/2023")),
     comment:
       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
 ];
+
+function formatDate(date) {
+  const calcDaysPassed = (date1, date2) =>
+    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+
+  const daysPassed = calcDaysPassed(new Date(), date);
+
+  if (daysPassed === 0) return "Today";
+  if (daysPassed === 1) return "Yesterday";
+  if (daysPassed <= 7) return `${daysPassed} days ago`;
+
+  const day = `${date.getDate()}`.padStart(2, 0);
+  const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
 
 function createElementWithClass(tag, className) {
   const el = document.createElement(tag);
@@ -28,8 +46,16 @@ function createElementWithClass(tag, className) {
 function createCardElement(comment) {
   const cardEl = createElementWithClass("div", "comment__card");
 
-  const avatarImgDefEl = createElementWithClass("div", "user-avatar");
-  cardEl.appendChild(avatarImgDefEl);
+  let userAvatar;
+  if (comment.avatar) {
+    userAvatar = createElementWithClass("img", "user-avatar");
+    userAvatar.src = comment.avatar;
+    userAvatar.alt = "User avatar image";
+  } else {
+    userAvatar = createElementWithClass("div", "user-avatar");
+  }
+
+  cardEl.appendChild(userAvatar);
 
   const commentContentEl = createElementWithClass("div", "user__comment");
 
@@ -68,16 +94,17 @@ function addNewComment(e) {
 
   const form = e.target;
   const name = form.name.value;
-  const date = timeAgo(new Date());
+  const date = new Date();
   const comment = form.comment.value;
 
   const newComment = {
     name: name,
-    dateAdded: date,
+    dateAdded: formatDate(date),
     comment: comment,
   };
 
   comments.push(newComment);
+  localStorage.setItem(commentsKey, JSON.stringify(comments));
   const cardEl = createCardElement(newComment);
   const commentsContainer = document.querySelector(".comments--posted");
   commentsContainer.appendChild(cardEl);
@@ -93,30 +120,3 @@ renderComments(comments);
 
 const newCommentForm = document.querySelector(".comments__form");
 newCommentForm.addEventListener("submit", addNewComment);
-
-function timeAgo(date) {
-  const now = new Date();
-  const secondsPast = Math.floor((now - date) / 1000);
-
-  if (secondsPast < 60) {
-    return "now";
-  }
-  const minutesPast = Math.floor(secondsPast / 60);
-  if (minutesPast < 60) {
-    return `${minutesPast} min${minutesPast === 1 ? "" : "s"} ago`;
-  }
-  const hoursPast = Math.floor(minutesPast / 60);
-  if (hoursPast < 24) {
-    return `${hoursPast} hr${hoursPast === 1 ? "" : "s"} ago`;
-  }
-  const daysPast = Math.floor(hoursPast / 24);
-  if (daysPast < 30) {
-    return `${daysPast} d${daysPast === 1 ? "" : "s"} ago`;
-  }
-  const monthsPast = Math.floor(daysPast / 30);
-  if (monthsPast < 12) {
-    return `${monthsPast} m${monthsPast === 1 ? "" : "s"} ago`;
-  }
-  const yearsPast = Math.floor(monthsPast / 12);
-  return `${yearsPast} y${yearsPast === 1 ? "" : "s"} ago`;
-}

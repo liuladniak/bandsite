@@ -7,15 +7,15 @@
 /* SHOWS-HERO SECTION*/
 /* ************************** */
 .section-hero--shows {
-  height: 240px;
+  height: 275px;
   background-image: url("../assets/images/hero-shows.jpg");
   justify-content: flex-start;
   padding: 0 1.6rem;
   @include lg-phone-breakpoint {
-    height: 300px;
+    height: 350px;
   }
   @include tablet-breakpoint {
-    height: 450px;
+    height: 500px;
     padding: 0 3.6rem;
   }
   @include lg-tablet-breakpoint {
@@ -53,11 +53,12 @@
     }
   }
   &__heading--shows {
-    padding: 0 0 1.6rem 0;
+    padding: 0.8rem 0 1.6rem 0;
     max-width: 80%;
 
     @include tablet-breakpoint {
       @include heading-style(6rem, 6.8rem, 1.6rem 0 3.6rem 0);
+      max-width: 78%;
     }
     @include desktop-breakpoint {
       @include heading-style(6rem, 6.8rem, $padding-lg);
@@ -115,10 +116,9 @@
 }
 .shows {
   width: 100%;
-  padding: 0 1.6rem;
   &__heading {
     font-family: "Avenir Next Bold";
-    @include heading-style($font-heading-sm, $lh-heading-sm, $padding-sm);
+    @include heading-style($font-heading-sm, $lh-heading-sm, 2.4rem 1.6rem);
     @include tablet-breakpoint {
       @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
     }
@@ -155,9 +155,11 @@
   cursor: pointer;
   @include font(1.4rem, 2.2rem);
 
-  &--selected {
+  &--selected,
+  &.show-card--selected:hover {
     background-color: $color-mercury;
   }
+
   &--top {
     @include font(1.4rem, 2.2rem);
     margin: 1.6rem 0;

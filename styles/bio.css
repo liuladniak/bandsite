@@ -707,12 +707,17 @@ body::-webkit-scrollbar {
   height: 36px;
   -o-object-fit: cover;
      object-fit: cover;
+  background-color: #e1e1e1;
+  flex-shrink: 0;
 }
 @media screen and (min-width: 768px) {
   .user-avatar {
     width: 48px;
     height: 48px;
   }
+}
+.user__comment {
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .user {
@@ -739,6 +744,12 @@ body::-webkit-scrollbar {
   border: 1px solid #e1e1e1;
   transition: all 0.2s ease;
 }
+.form-field::-moz-placeholder {
+  color: #323232;
+}
+.form-field::placeholder {
+  color: #323232;
+}
 .form-field-label {
   text-transform: uppercase;
   color: #afafaf;
@@ -759,6 +770,15 @@ body::-webkit-scrollbar {
   .form-field {
     min-height: 48px;
     padding: 1.6rem;
+  }
+}
+
+.btn-cta--bio {
+  width: calc(100% - 4.4rem);
+}
+@media screen and (min-width: 768px) {
+  .btn-cta--bio {
+    width: calc(100% - 6.4rem);
   }
 }
 
@@ -794,17 +814,4 @@ body::-webkit-scrollbar {
 .comment__date {
   color: #afafaf;
   font-family: "Avenir Next Regular";
-}
-
-.user-avatar {
-  width: 36px;
-  height: 36px;
-  background-color: #e1e1e1;
-  flex-shrink: 0;
-}
-@media screen and (min-width: 768px) {
-  .user-avatar {
-    width: 48px;
-    height: 48px;
-  }
 }/*# sourceMappingURL=bio.css.map */
