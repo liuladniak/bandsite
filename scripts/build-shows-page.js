@@ -122,6 +122,6 @@ showCards.forEach((show) => {
     document
       .querySelector(".show-card--selected")
       ?.classList.remove("show-card--selected");
-    show.classList.add("show-card--selected");
+    show.classList.toggle("show-card--selected");
   });
 });
