@@ -1,5 +1,4 @@
-const commentsKey = "comments";
-const comments = JSON.parse(localStorage.getItem(commentsKey)) || [
+const comments = [
   {
     name: "Victor Pinto",
     dateAdded: formatDate(new Date("11/02/2023")),
@@ -104,7 +103,6 @@ function addNewComment(e) {
   };
 
   comments.push(newComment);
-  localStorage.setItem(commentsKey, JSON.stringify(comments));
   const cardEl = createCardElement(newComment);
   const commentsContainer = document.querySelector(".comments--posted");
   commentsContainer.appendChild(cardEl);
