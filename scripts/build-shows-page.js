@@ -31,11 +31,14 @@ const shows = [
   },
 ];
 const showsContainer = document.querySelector(".cards__list");
+
 function createElementWithClass(tag, className) {
   const el = document.createElement(tag);
   el.classList.add(className);
   return el;
 }
+
+// Function to create Date, Venue, Location titles for the cards table
 function createTableTitleEl() {
   const cardTableTop = document.createElementWithClass("div", "show-card--top");
   const cardTitleTopDate = document.createElementWithClass(
@@ -59,6 +62,7 @@ function createTableTitleEl() {
   showsContainer.appendChild(cardTableTop);
 }
 
+//Functtion to create individual card elements
 function createCardElement(show) {
   const cardEl = createElementWithClass("div", "show-card");
 
@@ -100,6 +104,7 @@ function createCardElement(show) {
   return cardEl;
 }
 
+//Function to display the cards on the page
 function renderShows(shows) {
   shows.forEach((show) => {
     const cardEl = createCardElement(show);
@@ -109,6 +114,7 @@ function renderShows(shows) {
 
 renderShows(shows);
 
+//Function to add css styles on select
 const showCards = document.querySelectorAll(".show-card");
 showCards.forEach((show) => {
   show.addEventListener("click", () => {

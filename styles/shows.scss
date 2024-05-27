@@ -120,7 +120,11 @@
     font-family: "Avenir Next Bold";
     @include heading-style($font-heading-sm, $lh-heading-sm, 2.4rem 1.6rem);
     @include tablet-breakpoint {
-      @include heading-style($font-heading-lg, $lh-heading-lg, $padding-md);
+      @include heading-style(
+        $font-heading-lg,
+        $lh-heading-lg,
+        4.8rem 1.8rem 2.4rem 1.8rem
+      );
     }
     @include desktop-breakpoint {
       flex-shrink: 0;
@@ -139,10 +143,10 @@
 }
 .cards__list {
   flex: 1;
-  max-width: 800px;
   width: 100%;
   @include desktop-breakpoint {
     margin-top: 1.6rem;
+    max-width: 800px;
   }
 }
 .show-card {

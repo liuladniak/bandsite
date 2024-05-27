@@ -544,7 +544,7 @@ body::-webkit-scrollbar {
   .shows__heading {
     font-size: 3.6rem;
     line-height: 4.4rem;
-    padding: 4.8rem 0 2.4rem 0;
+    padding: 4.8rem 1.8rem 2.4rem 1.8rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -571,12 +571,12 @@ body::-webkit-scrollbar {
 
 .cards__list {
   flex: 1;
-  max-width: 800px;
   width: 100%;
 }
 @media screen and (min-width: 1280px) {
   .cards__list {
     margin-top: 1.6rem;
+    max-width: 800px;
   }
 }
 
