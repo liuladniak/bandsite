@@ -1,26 +1,26 @@
-const comments = [
-  {
-    name: "Victor Pinto",
-    dateAdded: formatDate(new Date("11/02/2023")),
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
+import { BandSiteApi, BANDSITE_API_KEY } from "./band-site-api.js";
 
-  {
-    name: "Christina Cabrera",
-    dateAdded: formatDate(new Date("10/28/2023")),
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Isaac Tadesse",
-    dateAdded: formatDate(new Date("10/20/2023")),
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+const response = new BandSiteApi(BANDSITE_API_KEY);
 
-function formatDate(date) {
+let comments;
+
+async function loadComments() {
+  try {
+    comments = await response.getComments();
+    comments.forEach((comment, i) => {
+      comment.dateAdded = formatDate(comments[i].timestamp);
+    });
+    console.log(comments, "API COMMENTS");
+    comments.sort((a, b) => b.dateAdded - a.dateAdded);
+    renderComments(comments);
+  } catch (err) {
+    console.error("Error loading comments", err);
+  }
+}
+loadComments();
+
+function formatDate(timestamp) {
+  const date = new Date(timestamp);
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 
@@ -65,6 +65,8 @@ function createCardElement(comment) {
   userNameEl.innerText = comment.name;
   headingWrpEl.appendChild(userNameEl);
 
+  // const commentDate = comment.dateAdded;
+
   datePosted.innerText = comment.dateAdded;
   headingWrpEl.appendChild(datePosted);
 
@@ -81,40 +83,35 @@ function createCardElement(comment) {
 
 function renderComments(comments) {
   const commentsContainer = document.querySelector(".comments--posted");
-  commentsContainer.innerHTML = "";
+  commentsContainer.innerText = "";
   comments.forEach((comment) => {
     const cardEl = createCardElement(comment);
     commentsContainer.appendChild(cardEl);
   });
 }
 
-function addNewComment(e) {
+async function addNewComment(e) {
   e.preventDefault();
 
   const form = e.target;
   const name = form.name.value;
-  const date = new Date();
   const comment = form.comment.value;
 
   const newComment = {
     name: name,
-    dateAdded: formatDate(date),
     comment: comment,
   };
 
-  comments.push(newComment);
-  const cardEl = createCardElement(newComment);
-  const commentsContainer = document.querySelector(".comments--posted");
-  commentsContainer.appendChild(cardEl);
+  try {
+    await response.postComment(newComment);
+    comments = await response.getComments();
+    renderComments(comments);
 
-  comments.sort((a, b) => b.dateAdded - a.dateAdded);
-  renderComments(comments);
-
-  form.reset();
+    form.reset();
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-comments.sort((a, b) => b.dateAdded - a.dateAdded);
-renderComments(comments);
-
 const newCommentForm = document.querySelector(".comments__form");
-newCommentForm.addEventListener("submit", addNewComment);
+newCommentForm.addEventListener("submit", (e) => addNewComment(e, comments));
