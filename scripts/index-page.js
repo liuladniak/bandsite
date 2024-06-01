@@ -1,6 +1,5 @@
-import { BandSiteApi, BANDSITE_API_KEY } from "./band-site-api.js";
-
-const response = new BandSiteApi(BANDSITE_API_KEY);
+import { response } from "./band-site-api.js";
+import { formatDateComment } from "./utils.js";
 
 let comments;
 
@@ -8,33 +7,16 @@ async function loadComments() {
   try {
     comments = await response.getComments();
     comments.forEach((comment, i) => {
-      comment.dateAdded = formatDate(comments[i].timestamp);
+      comment.dateAdded = formatDateComment(comments[i].timestamp);
     });
     console.log(comments, "API COMMENTS");
-    comments.sort((a, b) => b.dateAdded - a.dateAdded);
+    comments.sort((a, b) => b.timestamp - a.timestamp);
     renderComments(comments);
   } catch (err) {
     console.error("Error loading comments", err);
   }
 }
 loadComments();
-
-function formatDate(timestamp) {
-  const date = new Date(timestamp);
-  const calcDaysPassed = (date1, date2) =>
-    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
-
-  const daysPassed = calcDaysPassed(new Date(), date);
-
-  if (daysPassed === 0) return "Today";
-  if (daysPassed === 1) return "Yesterday";
-  if (daysPassed <= 7) return `${daysPassed} days ago`;
-
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = `${date.getMonth() + 1}`.padStart(2, 0);
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
-}
 
 function createElementWithClass(tag, className) {
   const el = document.createElement(tag);
@@ -64,8 +46,6 @@ function createCardElement(comment) {
 
   userNameEl.innerText = comment.name;
   headingWrpEl.appendChild(userNameEl);
-
-  // const commentDate = comment.dateAdded;
 
   datePosted.innerText = comment.dateAdded;
   headingWrpEl.appendChild(datePosted);

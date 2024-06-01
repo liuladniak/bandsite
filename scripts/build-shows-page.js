@@ -1,4 +1,24 @@
+import { response } from "./band-site-api.js";
+import { formatDateShow } from "./utils.js";
+
 const showsContainer = document.querySelector(".cards__list");
+
+let shows;
+
+async function loadShows() {
+  try {
+    shows = await response.getShows();
+    shows.forEach((show, i) => {
+      show.date = formatDateShow(shows[i].date);
+    });
+    renderShows(shows);
+  } catch (err) {
+    console.error("Error loading shows", err);
+  }
+}
+loadShows();
+
+createTableTitleEl();
 
 function createElementWithClass(tag, className) {
   const el = document.createElement(tag);
@@ -30,7 +50,6 @@ function createTableTitleEl() {
   cardTableTop.appendChild(cardTitleTopLoc);
   return cardTableTop;
 }
-createTableTitleEl();
 //Functtion to create individual card elements
 function createCardElement(show) {
   const cardEl = createElementWithClass("div", "show-card");
@@ -50,7 +69,7 @@ function createCardElement(show) {
   venueTitle.innerText = "Venue";
   venueWrp.appendChild(venueTitle);
   const venueEl = document.createElement("span");
-  venueEl.innerText = show.venue;
+  venueEl.innerText = show.place;
   venueWrp.appendChild(venueEl);
 
   const locationWrp = createElementWithClass("div", "show-card__venue");
@@ -79,17 +98,15 @@ function renderShows(shows) {
     const cardEl = createCardElement(show);
     showsContainer.appendChild(cardEl);
   });
-}
 
-renderShows(shows);
-
-//Function to add css styles on select
-const showCards = document.querySelectorAll(".show-card");
-showCards.forEach((show) => {
-  show.addEventListener("click", () => {
-    document
-      .querySelector(".show-card--selected")
-      ?.classList.remove("show-card--selected");
-    show.classList.toggle("show-card--selected");
+  //Functionality to add css styles on select
+  const showCards = document.querySelectorAll(".show-card");
+  showCards.forEach((show) => {
+    show.addEventListener("click", () => {
+      document
+        .querySelector(".show-card--selected")
+        ?.classList.remove("show-card--selected");
+      show.classList.toggle("show-card--selected");
+    });
   });
-});
+}

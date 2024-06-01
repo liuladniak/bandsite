@@ -36,3 +36,5 @@ export class BandSiteApi {
     return this.request("post", "comments", comment);
   }
 }
+
+export const response = new BandSiteApi(BANDSITE_API_KEY);
