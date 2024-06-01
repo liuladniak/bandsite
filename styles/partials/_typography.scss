@@ -1,12 +1,13 @@
 @font-face {
-  font-family: "Avenir Next Regular";
+  font-family: "Avenir Next";
   src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype");
   src: url("../../assets/fonts/alternative-fonts/AvenirNextLTPro.ttf")
     format("truetype");
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: "Avenir Next Demi";
+  font-family: "Avenir Next";
   src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype");
   src: url("../../assets/fonts/alternative-fonts/AvenirNextLTProDemi.ttf")
     format("truetype");
@@ -14,7 +15,7 @@
 }
 
 @font-face {
-  font-family: "Avenir Next Bold";
+  font-family: "Avenir Next";
   src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype");
   src: url("../../assets/fonts/alternative-fonts/AvenirNextLTProBold.ttf")
     format("truetype");

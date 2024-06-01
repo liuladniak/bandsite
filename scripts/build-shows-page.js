@@ -1,7 +1,7 @@
 import { response } from "./band-site-api.js";
 import { formatDateShow } from "./utils.js";
 
-const showsContainer = document.querySelector(".cards__list");
+const showsContainer = document.querySelector(".shows-cards__list");
 
 let shows;
 

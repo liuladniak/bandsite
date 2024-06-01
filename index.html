@@ -14,43 +14,43 @@
   </head>
   <body>
     <header class="header">
-      <div class="logo">
+      <div class="header__logo">
         <a href="/">
           <img
-            class="logo__img"
+            class="header__logo-img"
             src="./assets/logo/Logo-bandsite.svg"
             alt="logo image"
           />
         </a>
       </div>
-      <nav class="main-nav">
-        <ul class="main-nav__list">
-          <li class="main-nav__item">
-            <a class="main-nav__link main-nav__link--active" href="/"
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a class="header__nav-link header__nav-link--active" href="/"
               >Biography</a
             >
           </li>
-          <li class="main-nav__item">
-            <a class="main-nav__link" href="./pages/shows.html">Shows</a>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="./pages/shows.html">Shows</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="section-hero--bio hero">
+      <section class="section-bio__hero hero">
         <h1 class="hero__heading">The Bees Knees</h1>
       </section>
-      <section class="section-about">
+      <section class="about">
         <h2 class="about__heading">About the Musicians</h2>
         <div class="about__img">
           <img src="./assets/images/band.jpg" alt="Band photo" />
         </div>
         <blockquote class="about__quote">
-          <p class="quote__content">
+          <p class="about__quote-content">
             "We push each other to be the best. It’s not uncommon for one of us
             to say ‘this needs to be better, back to the drawing board’"
           </p>
-          <footer class="quote__author">
+          <footer class="about__quote-author">
             - Lead vocalist of The Bees Knees
           </footer>
         </blockquote>
@@ -79,7 +79,7 @@
           </p>
         </article>
       </section>
-      <section class="section-gallery">
+      <section class="gallery">
         <h2 class="gallery__heading">Photo Gallery</h2>
         <div class="gallery__items">
           <figure class="gallery__item">
@@ -138,22 +138,25 @@
           </figure>
         </div>
       </section>
-      <section class="section-comments">
+      <section class="comments">
         <h2 class="comments__heading">Join the Conversation</h2>
         <div class="comments-wrp">
-          <form action="" methd="post" class="comments__form">
-            <div class="form__user">
-              <label id="name-label" class="form-field-label" for="name"
+          <form action="" methd="post" class="form">
+            <div class="form__user-wrp">
+              <label
+                id="name-label"
+                class="form__label form__label--name"
+                for="name"
                 >Name</label
               >
-              <div class="user">
+              <div class="form__user">
                 <img
-                  class="user-avatar"
+                  class="form__user-img"
                   src="./assets/images/Mohan-muruge.jpg"
                   alt="user image"
                 />
                 <input
-                  class="form-field"
+                  class="form__field"
                   type="text"
                   name="name"
                   id="name"
@@ -162,10 +165,10 @@
                 />
               </div>
             </div>
-            <div class="form__comment-content">
-              <label class="form-field-label" for="comment">Comment</label>
+            <div class="form__content">
+              <label class="form__label" for="comment">Comment</label>
               <textarea
-                class="form-field"
+                class="form__field form__field--comment"
                 type="text"
                 name="comment"
                 id="comment"

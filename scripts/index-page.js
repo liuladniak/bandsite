@@ -7,7 +7,7 @@ async function loadComments() {
   try {
     comments = await response.getComments();
     comments.forEach((comment, i) => {
-      comment.dateAdded = formatDateComment(comments[i].timestamp);
+      comment.date = formatDateComment(comments[i].timestamp);
     });
     console.log(comments, "API COMMENTS");
     comments.sort((a, b) => b.timestamp - a.timestamp);
@@ -29,25 +29,25 @@ function createCardElement(comment) {
 
   let userAvatar;
   if (comment.avatar) {
-    userAvatar = createElementWithClass("img", "user-avatar");
+    userAvatar = createElementWithClass("img", "form__user-img");
     userAvatar.src = comment.avatar;
     userAvatar.alt = "User avatar image";
   } else {
-    userAvatar = createElementWithClass("div", "user-avatar");
+    userAvatar = createElementWithClass("div", "form__user-img");
   }
 
   cardEl.appendChild(userAvatar);
 
-  const commentContentEl = createElementWithClass("div", "user__comment");
+  const commentContentEl = createElementWithClass("div", "form__user-comment");
 
   const headingWrpEl = createElementWithClass("div", "comment__heading");
-  const userNameEl = createElementWithClass("h3", "user-name");
-  const datePosted = createElementWithClass("p", "comment__date");
+  const userNameEl = createElementWithClass("h3", "comment__heading-name");
+  const datePosted = createElementWithClass("p", "comment__heading-date");
 
   userNameEl.innerText = comment.name;
   headingWrpEl.appendChild(userNameEl);
 
-  datePosted.innerText = comment.dateAdded;
+  datePosted.innerText = comment.date;
   headingWrpEl.appendChild(datePosted);
 
   commentContentEl.appendChild(headingWrpEl);
@@ -93,5 +93,5 @@ async function addNewComment(e) {
   }
 }
 
-const newCommentForm = document.querySelector(".comments__form");
+const newCommentForm = document.querySelector(".form");
 newCommentForm.addEventListener("submit", (e) => addNewComment(e, comments));

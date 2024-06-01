@@ -6,7 +6,7 @@
 /* ************************** */
 /* SHOWS-HERO SECTION*/
 /* ************************** */
-.section-hero--shows {
+.section-shows__hero {
   height: 275px;
   background-image: url("../assets/images/hero-shows.jpg");
   justify-content: flex-start;
@@ -82,6 +82,18 @@
 .soundcloud-embed {
   z-index: 2;
   flex: 1;
+  &__song {
+    width: 100%;
+    height: 100px;
+
+    @include tablet-breakpoint {
+      width: 420px;
+      height: 140px;
+    }
+    @include desktop-breakpoint {
+    }
+  }
+
   @include tablet-breakpoint {
   }
   @include desktop-breakpoint {
@@ -90,35 +102,35 @@
     justify-content: flex-end;
   }
 }
-.song-embed {
-  width: 100%;
-  height: 100px;
-
-  @include tablet-breakpoint {
-    width: 420px;
-    height: 140px;
-  }
-  @include desktop-breakpoint {
-  }
-}
 
 /* ************************** */
 /* SHOWS LIST SECTION*/
 /* ************************** */
-.shows-section {
+.shows {
   display: flex;
   justify-content: center;
-  @include tablet-breakpoint {
+
+  &-wrp {
+    width: 100%;
+
+    @include tablet-breakpoint {
+      padding: 0 3.6rem;
+    }
+    @include desktop-breakpoint {
+      padding: 0;
+      max-width: 1070px;
+      display: flex;
+      justify-content: space-between;
+    }
   }
-  @include desktop-breakpoint {
-    padding-top: 4.8rem;
-  }
-}
-.shows {
-  width: 100%;
+
   &__heading {
-    font-family: "Avenir Next Bold";
-    @include heading-style($font-heading-sm, $lh-heading-sm, 2.4rem 1.6rem);
+    font-weight: 700;
+    @include heading-style(
+      $font-heading-sm,
+      $lh-heading-sm,
+      2.4rem 1.6rem 0 1.6rem
+    );
     @include tablet-breakpoint {
       @include heading-style(
         $font-heading-lg,
@@ -131,31 +143,29 @@
       @include heading-style($font-heading-lg, $lh-heading-lg, 0);
     }
   }
+
+  &-cards__list {
+    flex: 1;
+    width: 100%;
+    @include desktop-breakpoint {
+      margin-top: 1.6rem;
+      max-width: 800px;
+    }
+  }
+
   @include tablet-breakpoint {
-    padding: 0 3.6rem;
   }
   @include desktop-breakpoint {
-    padding: 0;
-    max-width: 1070px;
-    display: flex;
-    justify-content: space-between;
+    padding-top: 4.8rem;
   }
 }
-.cards__list {
-  flex: 1;
-  width: 100%;
-  @include desktop-breakpoint {
-    margin-top: 1.6rem;
-    max-width: 800px;
-  }
-}
+
 .show-card {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  border-bottom: 1px solid $color-mercury;
-  margin: 1.6rem 0;
-  padding: 0 1.6rem;
+  border-bottom: 0.1rem solid $color-mercury;
+  padding: 1.6rem;
   cursor: pointer;
   @include font(1.4rem, 2.2rem);
 
@@ -192,12 +202,12 @@
   }
   &__title,
   &--top {
-    font-family: "Avenir Next Regular";
+    font-weight: 400;
     text-transform: uppercase;
     color: $color-silver;
     @include font($font-body-sm, $lh-body-sm);
     @include tablet-breakpoint {
-      font-family: "Avenir Next Demi";
+      font-weight: 600;
       @include font($font-body-md, $lh-body-md);
     }
   }
@@ -214,7 +224,7 @@
     }
   }
   &__content {
-    font-family: "Avenir Next Demi";
+    font-weight: 600;
   }
   @include tablet-breakpoint {
     margin: 2.4 0rem;
