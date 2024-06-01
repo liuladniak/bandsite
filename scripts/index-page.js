@@ -85,6 +85,8 @@ async function addNewComment(e) {
   try {
     await response.postComment(newComment);
     comments = await response.getComments();
+    comments.sort((a, b) => b.timestamp - a.timestamp);
+
     renderComments(comments);
 
     form.reset();
