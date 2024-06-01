@@ -764,9 +764,6 @@ body::-webkit-scrollbar {
   outline: none;
   border: 0.1rem solid #323232;
 }
-.form__field--comment {
-  min-height: 9.5rem;
-}
 @media screen and (min-width: 768px) {
   .form__field {
     min-height: 48px;
@@ -785,6 +782,10 @@ body::-webkit-scrollbar {
   .form {
     width: 500px;
   }
+}
+
+#comment {
+  min-height: 95px;
 }
 
 .comment__card {

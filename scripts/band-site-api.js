@@ -1,6 +1,6 @@
-export const BANDSITE_API_KEY = "c0e0b864-68df-4155-a6e9-4f8b1c5171e5";
+const BANDSITE_API_KEY = "c0e0b864-68df-4155-a6e9-4f8b1c5171e5";
 
-export class BandSiteApi {
+class BandSiteApi {
   constructor(apiKey) {
     this.baseUrl = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
     this.apiKey = apiKey;

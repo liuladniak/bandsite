@@ -280,12 +280,6 @@
       border: 0.1rem solid $color-bandsite-black;
     }
 
-    &--comment {
-      min-height: 9.5rem;
-      &::placeholder {
-      }
-    }
-
     @include tablet-breakpoint {
       min-height: 48px;
       padding: 1.6rem;
@@ -301,6 +295,10 @@
   @include desktop-breakpoint {
     width: 500px;
   }
+}
+
+#comment {
+  min-height: 95px;
 }
 
 .comment {
