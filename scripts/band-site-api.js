@@ -23,6 +23,7 @@ class BandSiteApi {
         `Something went from while ${method} request to ${url}`,
         err
       );
+      throw err;
     }
   }
 
